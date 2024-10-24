@@ -9,6 +9,7 @@ class ParticleType {
   char   get_name() const;
   double get_mass() const;
   int    get_charge() const;
+  virtual int get_width() const;
 
   virtual void print() const;
 
@@ -26,6 +27,7 @@ class ParticleType {
 inline char   ParticleType::get_name() const { return name_; }
 inline double ParticleType::get_mass() const { return mass_; }
 inline int    ParticleType::get_charge() const { return charge_; }
+inline int    ParticleType::get_width() const { return 0;}
 
 inline void ParticleType::print() const {
   std::cout << "Particle " << get_name() << ": mass = " << std::setw(6)

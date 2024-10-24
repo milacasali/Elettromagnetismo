@@ -26,24 +26,41 @@ class Particle {
 
   void printParticle() const;
 
+  int decay2body(Particle &dau1,Particle &dau2) const;
+
   Particle(char name, double px = 0, double py = 0, double pz = 0);
+ 
+
 
  private:
   static const int max_n_particle_type_ = 7;
   static std::array<ParticleType*, max_n_particle_type_> particle_types_;
-  static int                                             n_particle_type_;
+  static int n_particle_type_;
 
   int index_;
 
   double px_;
   double py_;
   double pz_;
-
+   
+  void boost(double bx, double by, double bz);
   static int
       findParticle(char name); // trova il tipo di particella a partire dal suo
                                // nome (serve a settare correttamente l'indice)
   // puntatore perché può restituire un valore nullo se il nome non esiste
 };
+
+
+
+
+
+
+
+
+
+
+
+
 
 inline double Particle::get_px() const { return px_; }
 inline double Particle::get_py() const { return py_; }
